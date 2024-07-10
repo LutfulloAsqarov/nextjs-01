@@ -1,19 +1,20 @@
-import { PRODUCTS } from "@/static";
+// import { PRODUCTS } from "@/static";
 import Image from "next/image";
 import React from "react";
 import "./products.scss";
 import Link from "next/link";
 
-const Products = () => {
-    let productsItems = PRODUCTS?.map((product) => (
+const Products = ({ data }) => {
+    console.log(data);
+    let productsItems = data?.products?.map((product) => (
         <div key={product.id} className="products__card">
             <div className="products__card__img">
                 <Link href={`/product/${product.id}`}>
                     <Image
-                        width={""}
-                        height={""}
+                        width={200}
+                        height={200}
                         alt="Product-image"
-                        src={product.img}
+                        src={product.images[0]}
                     />
                 </Link>
             </div>
